@@ -13,9 +13,25 @@ import javax.persistence.ManyToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 @Entity
 public class CustomUser {
+
+    public CustomUser() {
+        //
+    }
+
+    public CustomUser(long id, String firstName, String lastName, String email, String login, String password,
+            boolean enabled, Set<CustomUserRole> userRoles) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.login = login;
+        this.password = password;
+        this.enabled = enabled;
+        this.userRoles = userRoles;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;

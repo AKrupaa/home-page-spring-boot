@@ -28,7 +28,10 @@ public class CustomUserRoleServiceImpl implements CustomUserRoleService {
 
     @Override
     public void addUserRole(CustomUserRole userRole) {
-        customUserRoleRepository.save(userRole);
+        Optional<CustomUserRole> findByRole = customUserRoleRepository.findByRole(userRole.getRole());
+
+        if (!findByRole.isPresent())
+            customUserRoleRepository.save(userRole);
     }
 
     @Override

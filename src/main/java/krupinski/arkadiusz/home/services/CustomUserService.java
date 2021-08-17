@@ -7,13 +7,13 @@ import krupinski.arkadiusz.home.models.CustomUser;
 
 public interface CustomUserService {
 
-    public void addCustomUser(CustomUser customUserDomain);
+    public void addCustomUser(CustomUser customUser);
 
     public void deleteCustomUser(long id);
 
     public CustomUser findByLogin(String login);
 
-    public void editCustomUser(CustomUser customUserDomain);
+    public void editCustomUser(CustomUser customUser);
 
     public List<CustomUser> getUsers();
 

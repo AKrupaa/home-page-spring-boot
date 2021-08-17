@@ -36,8 +36,8 @@ public class CustomUserServiceImpl implements CustomUserService {
     @Override
     public void addCustomUser(CustomUser customUser) {
         customUser.setEnabled(true);
-        customUser.getUserRoles()
-                .add(userRoleRepository.findByRole(RoleName.ROLE_USER).orElseThrow(IllegalStateException::new));
+        // customUser.getUserRoles()
+                // .add(userRoleRepository.findByRole(RoleName.ROLE_USER).orElseThrow(IllegalStateException::new));
 
         customUser.setPassword(hashPassword(customUser.getPassword()));
         this.customUserRepository.save(customUser);
@@ -55,8 +55,8 @@ public class CustomUserServiceImpl implements CustomUserService {
     }
 
     @Override
-    public void editCustomUser(CustomUser customUserDomain) {
-        this.customUserRepository.save(customUserDomain);
+    public void editCustomUser(CustomUser customUser) {
+        this.customUserRepository.save(customUser);
 
     }
 
